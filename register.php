@@ -1,14 +1,11 @@
-<?php require_once 'core/init.php'; ?>
-<html>
-<head>
-	<title>Update Profile</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/styles.css">
-	<script type="text/javascript" src="<?php echo root(); ?>/assets/js/jquery-1.10.2.js"></script>
-</head>
-<body>
 <?php
-include 'includes/parts/header.php';
+require_once 'core/init.php';
+get_header('Register');
+
+$user = new User();
+if($user->isLoggedIn()){
+	Redirect::to('index.php');
+}
 
 if(Input::exists()){
 	if(Token::check(Input::get('token'))){
@@ -70,26 +67,30 @@ if(Input::exists()){
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 <body>
-	<form accept="" method="post">
-		<div class="field">
-			<label for="username">Username</label>
-			<input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
-		</div>
-		<div class="field">
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password" value="">
-		</div>
-		<div class="field">
-			<label for="password_again">Repeat Password</label>
-			<input type="password" name="password_again" id="password_again" value="">
-		</div>
-		<div class="field">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>">
-		</div>
-		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
+<div class="container container-after">
+	<div class="row">
+		<form accept="" method="post" class="col-xs-4">
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" name="password" id="password" value="">
+			</div>
+			<div class="form-group">
+				<label for="password_again">Repeat Password</label>
+				<input type="password" class="form-control" name="password_again" id="password_again" value="">
+			</div>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>">
+			</div>
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
 
-		<input type="submit" value="Register">
-	</form>
+			<input type="submit" value="Register" class="btn btn-primary" />
+		</form>
+	</div>
+</div>
 
 <?php include 'includes/parts/footer.php'; ?>

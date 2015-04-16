@@ -2,6 +2,15 @@
 $user = new User();
 
 ?>
+<html>
+<head>
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/styles.css">
+	<script type="text/javascript" src="<?php echo root(); ?>/assets/js/jquery-1.10.2.js"></script>
+</head>
+<body>
+
 <nav class="nav navbar-inverse">
 	<div class="container-fluid">
 		<a href="<?php echo root(); ?>/index.php" class="navbar-brand">System Seed</a>

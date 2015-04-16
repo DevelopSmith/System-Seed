@@ -1,14 +1,6 @@
-<?php require_once 'core/init.php'; ?>
-<html>
-<head>
-	<title>Change Password</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo root(); ?>/assets/css/styles.css">
-	<script type="text/javascript" src="<?php echo root(); ?>/assets/js/jquery-1.10.2.js"></script>
-</head>
-<body>
 <?php
-include 'includes/parts/header.php';
+require_once 'core/init.php';
+get_header('Change Password');
 
 $user = new User();
 if(!$user->isLoggedIn()){
@@ -63,22 +55,25 @@ if(Input::exists()){
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 <body>
-	<form accept="" method="post">
-		<div class="field">
-			<label for="password_current">Current Password</label>
-			<input type="password" name="password_current" id="password_current" value="">
-		</div>
-		<div class="field">
-			<label for="password_new">New Password</label>
-			<input type="password" name="password_new" id="password_new" value="">
-		</div>
-		<div class="field">
-			<label for="password_new_again">New Password Again</label>
-			<input type="password" name="password_new_again" id="password_new_again" value="">
-		</div>
-		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
+<div class="container container-after">
+	<div class="row">
+		<form accept="" method="post" class="col-xs-4">
+			<div class="form-group">
+				<label for="password_current">Current Password</label>
+				<input type="password" class="form-control" name="password_current" id="password_current" value="">
+			</div>
+			<div class="form-group">
+				<label for="password_new">New Password</label>
+				<input type="password" class="form-control" name="password_new" id="password_new" value="">
+			</div>
+			<div class="form-group">
+				<label for="password_new_again">New Password Again</label>
+				<input type="password" class="form-control" name="password_new_again" id="password_new_again" value="">
+			</div>
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
 
-		<input type="submit" value="Change">
-	</form>
-
+			<input type="submit" value="Change" class="btn btn-primary" />
+		</form>
+	</div>
+</div>
 <?php include 'includes/parts/footer.php'; ?>
