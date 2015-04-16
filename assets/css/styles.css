@@ -1,0 +1,11 @@
+.field {
+  height: 30px;
+  width: 300px;
+}
+.field label{
+	float: left;
+	display: block;
+}
+.field input{
+	float: right;
+}
