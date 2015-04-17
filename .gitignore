@@ -1,1 +1,3 @@
-lr.sql
+*.psd
+*.ai
+/bin

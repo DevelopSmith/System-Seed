@@ -13,14 +13,18 @@ $user = new User();
 
 <nav class="nav navbar-inverse">
 	<div class="container-fluid">
-		<a href="<?php echo root(); ?>/index.php" class="navbar-brand">System Seed</a>
-		<ul class="nav navbar-nav">
+		<a href="<?php echo root(); ?>/index.php" class="navbar-brand" style="font-size: 25px; line-height: 30px;">System Seed</a>
+		<ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
 			<!-- <li class=""><a href="#">Link</a></li> -->
 			<?php
 			if($user->isLoggedIn()){
 				?>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $user->data()->name; ?> <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<span class="navbar-avatar"><img width="30" height="30" src="https://launchbit.com/taz-i/5575-19450144c1955169aa40fb9cb89291146abe1c57-bsa.png"></span> 
+						<strong>Bebo Sofi</strong> <span class="caret"></span>
+					</a>
+
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="<?php echo root(); ?>/profile.php">Profile</a></li>
 						<li><a href="<?php echo root(); ?>/changepassword.php">Change Password</a></li>
