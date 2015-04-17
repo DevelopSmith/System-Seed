@@ -15,7 +15,7 @@ $user = new User();
 	<div class="container-fluid">
 		<a href="<?php echo root(); ?>/index.php" class="navbar-brand">System Seed</a>
 		<ul class="nav navbar-nav">
-			<li class=""><a href="#">Link</a></li>
+			<!-- <li class=""><a href="#">Link</a></li> -->
 			<?php
 			if($user->isLoggedIn()){
 				?>

@@ -65,6 +65,28 @@ class DB{
 		return false;
 	}
 
+	public function create($name, $params = array(), $primary = '', $auto = null){
+		$auto_increment = ($auto != null) ? ' AUTO_INCREMENT=' . $auto : '';
+		$fields = '';
+		$x = 1;
+
+		foreach ($params as $param) {
+			$fields .= $param;
+
+			if($x < count($params)){
+				$fields .= ', ';
+				$x++;
+			}
+			
+		}
+		if($primary){
+			$fields .= ', PRIMARY KEY (`id`)';
+		}
+
+		$sql = "CREATE TABLE IF NOT EXISTS `{$name}` ({$fields}) ENGINE=MyISAM  DEFAULT CHARSET=latin1{$auto_increment}";
+		return $this->query($sql);
+	}
+
 	public function get($table, $where){
 		return $this->action('SELECT *', $table, $where);
 	}
